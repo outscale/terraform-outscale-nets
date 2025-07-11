@@ -39,10 +39,7 @@ resource "outscale_route_table" "public_route_table" {
   net_id = outscale_net.net.net_id
 
   dynamic "tags" {
-    for_each = concat(var.tags, [{
-      key   = "Name"
-      value = format("%s-public-route-table-%s", var.name, each.key)
-    }])
+    for_each = concat(var.tags, local.public_route_tables_name[each.key])
     content {
       key   = tags.value.key
       value = tags.value.value
@@ -83,10 +80,7 @@ resource "outscale_route_table" "private_route_table" {
   net_id = outscale_net.net.net_id
 
   dynamic "tags" {
-    for_each = concat(var.tags, [{
-      key   = "Name"
-      value = format("%s-private-route-table-%s", var.name, each.key)
-    }])
+    for_each = concat(var.tags, local.private_route_tables_name[each.key])
     content {
       key   = tags.value.key
       value = tags.value.value
@@ -144,10 +138,7 @@ resource "outscale_internet_service" "internet_service" {
   count = var.enable_internet_service ? 1 : 0
 
   dynamic "tags" {
-    for_each = concat(var.tags, [{
-      key   = "Name"
-      value = format("%s-internet-service-%s", var.name, var.outscale_region)
-    }])
+    for_each = concat(var.tags, local.internet_service_name)
     content {
       key   = tags.value.key
       value = tags.value.value
@@ -198,10 +189,7 @@ resource "outscale_route_table" "storage_route_table" {
   net_id = outscale_net.net.net_id
 
   dynamic "tags" {
-    for_each = concat(var.tags, [{
-      key   = "Name"
-      value = format("%s-storage-route-table-%s", var.name, each.key)
-    }])
+    for_each = concat(var.tags, local.storage_route_tables_name[each.key])
     content {
       key   = tags.value.key
       value = tags.value.value
