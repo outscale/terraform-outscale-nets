@@ -158,6 +158,7 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct]
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
 | <a name="requirement_outscale"></a> [outscale](#requirement\_outscale) | 1.1.3 |
 
 ## Providers
