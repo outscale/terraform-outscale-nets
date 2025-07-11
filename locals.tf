@@ -40,6 +40,34 @@ locals {
   }
 
   ####################################################################################################################
+  # Define if the route tables are a name in the tags
+  ####################################################################################################################
+  public_route_table_name_in_tags  = length(var.public_route_table_tags) > 0 && alltrue([for tag in var.public_route_table_tags : tag.key == "Name"]) ? true : false
+  private_route_table_name_in_tags = length(var.private_route_table_tags) > 0 && alltrue([for tag in var.private_route_table_tags : tag.key == "Name"]) ? true : false
+  storage_route_table_name_in_tags = length(var.storage_route_table_tags) > 0 && alltrue([for tag in var.storage_route_table_tags : tag.key == "Name"]) ? true : false
+
+  public_route_tables_name = local.public_route_table_name_in_tags ? {} : {
+    for subnet in var.public_subnets : format("%s%s", var.outscale_region, subnet.az) => [{
+      key   = "Name"
+      value = format("%s-public-route-table-%s%s", var.name, var.outscale_region, subnet.az)
+    }]
+  }
+
+  private_route_tables_name = local.private_route_table_name_in_tags ? {} : {
+    for subnet in var.private_subnets : format("%s%s", var.outscale_region, subnet.az) => [{
+      key   = "Name"
+      value = format("%s-private-route-table-%s%s", var.name, var.outscale_region, subnet.az)
+    }]
+  }
+
+  storage_route_tables_name = local.storage_route_table_name_in_tags ? {} : {
+    for subnet in var.storage_subnets : format("%s%s", var.outscale_region, subnet.az) => [{
+      key   = "Name"
+      value = format("%s-storage-route-table-%s%s", var.name, var.outscale_region, subnet.az)
+    }]
+  }
+
+  ####################################################################################################################
   # Define if the internet service is a name in the tags
   ####################################################################################################################
   internet_service_name_in_tags = length(var.internet_service_tags) > 0 && alltrue([for tag in var.internet_service_tags : tag.key == "Name"]) ? true : false
