@@ -5,7 +5,7 @@ resource "outscale_net" "net" {
   ip_range = var.cidr
   tenancy  = var.tenancy
   dynamic "tags" {
-    for_each = concat(var.net_tags, var.tags, local.net_name)
+    for_each = concat(var.net_tags, var.tags, local.net_name, local.kubernetes_net_tags)
     content {
       key   = tags.value.key
       value = tags.value.value
@@ -25,7 +25,7 @@ resource "outscale_subnet" "public_subnet" {
   subregion_name = each.key
 
   dynamic "tags" {
-    for_each = concat(var.public_subnet_tags, var.tags, local.public_subnets_name[each.key])
+    for_each = concat(var.public_subnet_tags, var.tags, local.public_subnets_name[each.key], local.kubernetes_subnet_tags)
     content {
       key   = tags.value.key
       value = tags.value.value
@@ -66,7 +66,7 @@ resource "outscale_subnet" "private_subnet" {
   subregion_name = each.key
 
   dynamic "tags" {
-    for_each = concat(var.private_subnet_tags, var.tags, local.private_subnets_name[each.key])
+    for_each = concat(var.private_subnet_tags, var.tags, local.private_subnets_name[each.key], local.kubernetes_subnet_tags)
     content {
       key   = tags.value.key
       value = tags.value.value
@@ -175,7 +175,7 @@ resource "outscale_subnet" "storage_subnet" {
   subregion_name = each.key
 
   dynamic "tags" {
-    for_each = concat(var.storage_subnet_tags, var.tags, local.storage_subnets_name[each.key])
+    for_each = concat(var.storage_subnet_tags, var.tags, local.storage_subnets_name[each.key], local.kubernetes_subnet_tags)
     content {
       key   = tags.value.key
       value = tags.value.value

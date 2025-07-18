@@ -126,5 +126,12 @@ locals {
       value = format("%s-storage-nat-service-public-ip-%s%s", var.name, var.outscale_region, subnet.az)
     }]
   }
+
+
+  ####################################################################################################################
+  # Kubernetes Cluster Tags
+  ####################################################################################################################
+  kubernetes_net_tags    = var.kubernetes_support ? [{ key = format("OscK8sClusterID/%s", var.kubernetes_cluster_name), value = "shared" }] : []
+  kubernetes_subnet_tags = var.kubernetes_support ? [{ key = format("OscK8sClusterID/%s", var.kubernetes_cluster_name), value = "shared" }] : []
 }
 
