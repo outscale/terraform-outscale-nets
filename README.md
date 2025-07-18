@@ -80,13 +80,13 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct]
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_outscale"></a> [outscale](#requirement\_outscale) | 1.1.3 |
+| <a name="requirement_outscale"></a> [outscale](#requirement\_outscale) | 1.2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_outscale"></a> [outscale](#provider\_outscale) | 1.1.3 |
+| <a name="provider_outscale"></a> [outscale](#provider\_outscale) | 1.2.0 |
 
 ## Modules
 
@@ -96,25 +96,25 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [outscale_internet_service.internet_service](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/internet_service) | resource |
-| [outscale_internet_service_link.internet_service_link](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/internet_service_link) | resource |
-| [outscale_nat_service.private_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/nat_service) | resource |
-| [outscale_nat_service.storage_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/nat_service) | resource |
-| [outscale_net.net](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/net) | resource |
-| [outscale_public_ip.nat_service_private_subnet_public_ip](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/public_ip) | resource |
-| [outscale_public_ip.nat_service_storage_subnet_public_ip](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/public_ip) | resource |
-| [outscale_route.private_route_to_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route) | resource |
-| [outscale_route.route_to_internet_service](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route) | resource |
-| [outscale_route.storage_route_to_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route) | resource |
-| [outscale_route_table.private_route_table](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route_table) | resource |
-| [outscale_route_table.public_route_table](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route_table) | resource |
-| [outscale_route_table.storage_route_table](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route_table) | resource |
-| [outscale_route_table_link.private_route_table_link](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route_table_link) | resource |
-| [outscale_route_table_link.public_route_table_link](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route_table_link) | resource |
-| [outscale_route_table_link.storage_route_table_link](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/route_table_link) | resource |
-| [outscale_subnet.private_subnet](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/subnet) | resource |
-| [outscale_subnet.public_subnet](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/subnet) | resource |
-| [outscale_subnet.storage_subnet](https://registry.terraform.io/providers/outscale/outscale/1.1.3/docs/resources/subnet) | resource |
+| [outscale_internet_service.internet_service](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/internet_service) | resource |
+| [outscale_internet_service_link.internet_service_link](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/internet_service_link) | resource |
+| [outscale_nat_service.private_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/nat_service) | resource |
+| [outscale_nat_service.storage_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/nat_service) | resource |
+| [outscale_net.net](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/net) | resource |
+| [outscale_public_ip.nat_service_private_subnet_public_ip](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/public_ip) | resource |
+| [outscale_public_ip.nat_service_storage_subnet_public_ip](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/public_ip) | resource |
+| [outscale_route.private_route_to_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route) | resource |
+| [outscale_route.route_to_internet_service](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route) | resource |
+| [outscale_route.storage_route_to_nat_service](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route) | resource |
+| [outscale_route_table.private_route_table](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route_table) | resource |
+| [outscale_route_table.public_route_table](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route_table) | resource |
+| [outscale_route_table.storage_route_table](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route_table) | resource |
+| [outscale_route_table_link.private_route_table_link](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route_table_link) | resource |
+| [outscale_route_table_link.public_route_table_link](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route_table_link) | resource |
+| [outscale_route_table_link.storage_route_table_link](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/route_table_link) | resource |
+| [outscale_subnet.private_subnet](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/subnet) | resource |
+| [outscale_subnet.public_subnet](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/subnet) | resource |
+| [outscale_subnet.storage_subnet](https://registry.terraform.io/providers/outscale/outscale/1.2.0/docs/resources/subnet) | resource |
 
 ## Inputs
 
