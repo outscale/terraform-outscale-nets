@@ -211,3 +211,19 @@ variable "internet_service_tags" {
   }))
   default = []
 }
+
+################################################################################
+# Kubernetes option
+# This is an optional variable to enable Kubernetes support and add the necessary tags to the resources.
+################################################################################
+variable "kubernetes_support" {
+  description = "Whether to enable Kubernetes support."
+  type        = bool
+  default     = false
+}
+
+variable "kubernetes_cluster_name" {
+  description = "The name of the Kubernetes cluster."
+  type        = string
+  default     = ""
+}
