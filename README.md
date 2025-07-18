@@ -4,22 +4,12 @@
 
 ---
 
-## 🌐 Links
-
-- Documentation: <https://docs.outscale.com/en/>
-- Project website: <https://github.com/outscale/<project-name>>
-- Join our community on [Discord](https://discord.gg/HUVtY5gT6s)
-- Related tools or community: <<https://example.com>> *(optional)*
-
----
-
 ## 📄 Table of Contents
 
 - [Overview](#-overview)
 - [Requirements](#-requirements)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
 - [Usage](#-usage)
+- [Configuration](#-configuration)
 - [Examples](#-examples)
 - [License](#-license)
 - [Contributing](#-contributing)
@@ -31,109 +21,47 @@
 **terraform-osc-vpc** is a Terraform/OpenTofu module for deploying a vpc and the necessary components (subnets, internet gateway, ...).
 
 Key features:
-- <Feature 1>
-- <Feature 2>
-- <Feature 3>
+- public/private/storage subnets
+- internet service
+- nat service (one per private subnet or not)
+- kubernetes tags if you want use the [Cloud provider OSC](https://github.com/outscale/cloud-provider-osc)
 
 ---
 
 ## ✅ Requirements
 
-- <Dependency 1> (e.g., Rust, Go, Python 3.11+)
-- <Dependency 2> (e.g., Git)
-- Access to the OUTSCALE API (with appropriate credentials)
+- Go
 
 ---
 
-## ⚙️ Installation
+## 🚀 Usage
 
-### Option 1: Download from Releases
+```hlc
+module "terraform-osc-vpc" {
+  source = "git@github.com:outscale/terraform-osc-vpc.git" // you can use a specific version
 
-Download the latest binary from the [Releases page](https://github.com/outscale/<project-name>/releases).
-
-### Option 2: Install from source
-
-```bash
-git clone https://github.com/outscale/<project-name>.git
-cd <project-name>
-<build or install command>
-````
-
-Example (for Go projects):
-
-```bash
-go install github.com/outscale/<project-name>@latest
+  --- vars ---
+}
 ```
 
 ---
 
 ## 🛠 Configuration
 
-\<Explain where the credentials or config are stored, e.g.:>
-
-The tool expects a configuration file at `~/.osc/config.json`.
-
-### Example
-
-```json
-{
-  "default": {
-    "access_key": "MyAccessKey",
-    "secret_key": "MySecretKey",
-    "region": "eu-west-2"
-  }
-}
-```
-
-Use the `--profile` flag to select another profile.
-
----
-
-## 🚀 Usage
-
-```bash
-<command> [OPTIONS]
-```
-
-### Options
-
-| Option             | Description                            |
-| ------------------ | -------------------------------------- |
-| `-f, --flag`       | What this flag does                    |
-| `-c, --count <N>`  | Run N times                            |
-| `--profile <name>` | Use a specific profile from the config |
-| `-v, --version`    | Print version and exit                 |
+You need to specify the Access Key Id and Secret Key Id in the variables or use the environment variables
 
 ---
 
 ## 💡 Examples
 
-### Basic usage
-
-```bash
-<command>
-```
-
-### With options
-
-```bash
-<command> --flag value --profile test
-```
-
-### Using `jq` to filter JSON output
-
-```bash
-jq '.[] | select(.ResponseStatusCode != 200)' logs.json
-```
+See [example folder](https://github.com/outscale/terraform-osc-vpc)
 
 ---
 
 ## 📜 License
 
-**< Project Name >** is released under the < License Name > license.
-
-© < Year > Outscale SAS
-
+**terraform-osc-vpc** is released under the < License Name > license.
+© 2025 Outscale SAS
 See [LICENSE](./LICENSE) for full details.
 
 ---
@@ -145,13 +73,6 @@ We welcome contributions!
 Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting a pull request.
 
 ---
-
-### Notes for reuse:
-- Replace all `<...>` placeholders with your content.
-- You can prefill the `Project Stage` badge with values like:
-  - `Project-Incubating-blue.svg`
-  - `Project-Graduated-green.svg`
-- You may include platform-specific instructions (macOS/Linux/Windows) in collapsible `<details>` blocks if needed.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -204,6 +125,8 @@ No modules.
 | <a name="input_enable_private_subnets_nat_service"></a> [enable\_private\_subnets\_nat\_service](#input\_enable\_private\_subnets\_nat\_service) | Whether to enable NAT service for private subnets. | `bool` | `true` | no |
 | <a name="input_enable_storage_subnets_nat_service"></a> [enable\_storage\_subnets\_nat\_service](#input\_enable\_storage\_subnets\_nat\_service) | Whether to enable NAT service for storage subnets. | `bool` | `false` | no |
 | <a name="input_internet_service_tags"></a> [internet\_service\_tags](#input\_internet\_service\_tags) | A map of tags to assign to the internet service. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
+| <a name="input_kubernetes_cluster_name"></a> [kubernetes\_cluster\_name](#input\_kubernetes\_cluster\_name) | The name of the Kubernetes cluster. | `string` | `""` | no |
+| <a name="input_kubernetes_support"></a> [kubernetes\_support](#input\_kubernetes\_support) | Whether to enable Kubernetes support. | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the net. | `string` | `""` | no |
 | <a name="input_nat_service_per_private_subnet"></a> [nat\_service\_per\_private\_subnet](#input\_nat\_service\_per\_private\_subnet) | Whether to create a NAT service in each subregion. | `bool` | `false` | no |
 | <a name="input_nat_service_per_storage_subnet"></a> [nat\_service\_per\_storage\_subnet](#input\_nat\_service\_per\_storage\_subnet) | Whether to create a NAT service in each subregion for storage subnets. | `bool` | `false` | no |
