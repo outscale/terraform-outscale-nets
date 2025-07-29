@@ -17,7 +17,7 @@ resource "outscale_net" "net" {
 # public subnets & route tables
 ####################################################################################################################
 resource "outscale_subnet" "public_subnet" {
-  for_each = { for subnet in var.public_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.public_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   net_id   = outscale_net.net.net_id
   ip_range = each.value.cidr
@@ -34,7 +34,7 @@ resource "outscale_subnet" "public_subnet" {
 }
 
 resource "outscale_route_table" "public_route_table" {
-  for_each = { for subnet in var.public_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.public_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   net_id = outscale_net.net.net_id
 
@@ -48,7 +48,7 @@ resource "outscale_route_table" "public_route_table" {
 }
 
 resource "outscale_route_table_link" "public_route_table_link" {
-  for_each = { for subnet in var.public_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.public_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   route_table_id = outscale_route_table.public_route_table[each.key].route_table_id
   subnet_id      = outscale_subnet.public_subnet[each.key].subnet_id
@@ -58,7 +58,7 @@ resource "outscale_route_table_link" "public_route_table_link" {
 # private subnets, route tables, NAT service, public IPs & routes
 ####################################################################################################################
 resource "outscale_subnet" "private_subnet" {
-  for_each = { for subnet in var.private_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.private_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   net_id   = outscale_net.net.net_id
   ip_range = each.value.cidr
@@ -75,7 +75,7 @@ resource "outscale_subnet" "private_subnet" {
 }
 
 resource "outscale_route_table" "private_route_table" {
-  for_each = { for subnet in var.private_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.private_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   net_id = outscale_net.net.net_id
 
@@ -89,7 +89,7 @@ resource "outscale_route_table" "private_route_table" {
 }
 
 resource "outscale_route_table_link" "private_route_table_link" {
-  for_each = { for subnet in var.private_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.private_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   route_table_id = outscale_route_table.private_route_table[each.key].route_table_id
   subnet_id      = outscale_subnet.private_subnet[each.key].subnet_id
@@ -123,10 +123,10 @@ resource "outscale_nat_service" "private_nat_service" {
 }
 
 resource "outscale_route" "private_route_to_nat_service" {
-  for_each = var.enable_private_subnets_nat_service ? { for subnet in var.private_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet } : {}
+  for_each = var.enable_private_subnets_nat_service ? { for subnet in var.private_subnets : format("%s%s", var.osc_region, subnet.az) => subnet } : {}
 
   destination_ip_range = "0.0.0.0/0"
-  nat_service_id       = var.nat_service_per_private_subnet ? outscale_nat_service.private_nat_service[each.key].id : outscale_nat_service.private_nat_service[format("%s%s", var.outscale_region, local.fake_subnet[0].az)].nat_service_id
+  nat_service_id       = var.nat_service_per_private_subnet ? outscale_nat_service.private_nat_service[each.key].id : outscale_nat_service.private_nat_service[format("%s%s", var.osc_region, local.fake_subnet[0].az)].nat_service_id
   route_table_id       = outscale_route_table.private_route_table[each.key].route_table_id
   depends_on           = [outscale_nat_service.private_nat_service]
 }
@@ -155,7 +155,7 @@ resource "outscale_internet_service_link" "internet_service_link" {
 }
 
 resource "outscale_route" "route_to_internet_service" {
-  for_each = var.enable_internet_service ? { for subnet in var.public_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet } : {}
+  for_each = var.enable_internet_service ? { for subnet in var.public_subnets : format("%s%s", var.osc_region, subnet.az) => subnet } : {}
 
   destination_ip_range = "0.0.0.0/0"
   gateway_id           = outscale_internet_service.internet_service[0].internet_service_id
@@ -167,7 +167,7 @@ resource "outscale_route" "route_to_internet_service" {
 # storage subnets, route tables, NAT service, public IPs & routes
 ####################################################################################################################
 resource "outscale_subnet" "storage_subnet" {
-  for_each = { for subnet in var.storage_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.storage_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   net_id   = outscale_net.net.net_id
   ip_range = each.value.cidr
@@ -184,7 +184,7 @@ resource "outscale_subnet" "storage_subnet" {
 }
 
 resource "outscale_route_table" "storage_route_table" {
-  for_each = { for subnet in var.storage_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.storage_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   net_id = outscale_net.net.net_id
 
@@ -198,7 +198,7 @@ resource "outscale_route_table" "storage_route_table" {
 }
 
 resource "outscale_route_table_link" "storage_route_table_link" {
-  for_each = { for subnet in var.storage_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet }
+  for_each = { for subnet in var.storage_subnets : format("%s%s", var.osc_region, subnet.az) => subnet }
 
   route_table_id = outscale_route_table.storage_route_table[each.key].route_table_id
   subnet_id      = outscale_subnet.storage_subnet[each.key].subnet_id
@@ -232,10 +232,10 @@ resource "outscale_nat_service" "storage_nat_service" {
 }
 
 resource "outscale_route" "storage_route_to_nat_service" {
-  for_each = var.enable_storage_subnets_nat_service ? { for subnet in var.storage_subnets : format("%s%s", var.outscale_region, subnet.az) => subnet } : {}
+  for_each = var.enable_storage_subnets_nat_service ? { for subnet in var.storage_subnets : format("%s%s", var.osc_region, subnet.az) => subnet } : {}
 
   destination_ip_range = "0.0.0.0/0"
-  nat_service_id       = var.nat_service_per_storage_subnet ? outscale_nat_service.storage_nat_service[each.key].id : outscale_nat_service.storage_nat_service[format("%s%s", var.outscale_region, local.fake_subnet[0].az)].nat_service_id
+  nat_service_id       = var.nat_service_per_storage_subnet ? outscale_nat_service.storage_nat_service[each.key].id : outscale_nat_service.storage_nat_service[format("%s%s", var.osc_region, local.fake_subnet[0].az)].nat_service_id
   route_table_id       = outscale_route_table.storage_route_table[each.key].route_table_id
   depends_on           = [outscale_nat_service.storage_nat_service]
 }

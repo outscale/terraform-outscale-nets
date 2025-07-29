@@ -131,9 +131,9 @@ No modules.
 | <a name="input_nat_service_per_private_subnet"></a> [nat\_service\_per\_private\_subnet](#input\_nat\_service\_per\_private\_subnet) | Whether to create a NAT service in each subregion. | `bool` | `false` | no |
 | <a name="input_nat_service_per_storage_subnet"></a> [nat\_service\_per\_storage\_subnet](#input\_nat\_service\_per\_storage\_subnet) | Whether to create a NAT service in each subregion for storage subnets. | `bool` | `false` | no |
 | <a name="input_net_tags"></a> [net\_tags](#input\_net\_tags) | A map of tags to assign to the net. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
-| <a name="input_outscale_access_key"></a> [outscale\_access\_key](#input\_outscale\_access\_key) | The Outscale access key. | `string` | `""` | no |
-| <a name="input_outscale_region"></a> [outscale\_region](#input\_outscale\_region) | The Outscale region to use. | `string` | `"eu-west-2"` | no |
-| <a name="input_outscale_secret_key"></a> [outscale\_secret\_key](#input\_outscale\_secret\_key) | The Outscale secret key. | `string` | `""` | no |
+| <a name="input_osc_access_key"></a> [osc\_access\_key](#input\_osc\_access\_key) | The Outscale access key. | `string` | `""` | no |
+| <a name="input_osc_region"></a> [osc\_region](#input\_osc\_region) | The Outscale region to use. | `string` | `"eu-west-2"` | no |
+| <a name="input_osc_secret_key"></a> [osc\_secret\_key](#input\_osc\_secret\_key) | The Outscale secret key. | `string` | `""` | no |
 | <a name="input_private_nat_gateway_tags"></a> [private\_nat\_gateway\_tags](#input\_private\_nat\_gateway\_tags) | A map of tags to assign to the private NAT gateways. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_private_route_table_tags"></a> [private\_route\_table\_tags](#input\_private\_route\_table\_tags) | A map of tags to assign to the private route tables. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_private_subnet_tags"></a> [private\_subnet\_tags](#input\_private\_subnet\_tags) | A map of tags to assign to the private subnets. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
