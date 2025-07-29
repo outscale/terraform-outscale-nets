@@ -1,19 +1,19 @@
 ################################################################################
 # Provider
 ################################################################################
-variable "outscale_access_key" {
+variable "osc_access_key" {
   description = "The Outscale access key."
   type        = string
   default     = ""
 }
 
-variable "outscale_secret_key" {
+variable "osc_secret_key" {
   description = "The Outscale secret key."
   type        = string
   default     = ""
 }
 
-variable "outscale_region" {
+variable "osc_region" {
   description = "The Outscale region to use."
   type        = string
   default     = "eu-west-2"
