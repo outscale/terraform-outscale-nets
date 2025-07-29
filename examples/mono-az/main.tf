@@ -8,9 +8,9 @@ module "terraform_outscale_vpc" {
 
   name                           = "my-vpc"
   cidr                           = "10.0.0.0/16"
-  public_subnets                 = [{cidr = "10.0.100.0/24", az = "a"}]
-  private_subnets                = [{cidr = "10.0.0.0/24", az = "a"}]
-  nat_service_per_private_subnet = false 
+  public_subnets                 = [{ cidr = "10.0.100.0/24", az = "a" }]
+  private_subnets                = [{ cidr = "10.0.0.0/24", az = "a" }]
+  nat_service_per_private_subnet = false
 
   tags = [
     {
