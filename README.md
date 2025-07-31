@@ -1,4 +1,4 @@
-## **terraform-osc-vpc**
+## **terraform-outscale-nets**
 
 [![Project Stage](https://docs.outscale.com/fr/userguide/_images/Project-Sandbox-yellow.svg)](https://docs.outscale.com/en/userguide/Open-Source-Projects.html) [![](https://dcbadge.limes.pink/api/server/HUVtY5gT6s?style=flat&theme=default-inverted)](https://discord.gg/HUVtY5gT6s)
 
@@ -18,7 +18,7 @@
 
 ## 🧭 Overview
 
-**terraform-osc-vpc** is a Terraform/OpenTofu module for deploying a vpc and the necessary components (subnets, internet gateway, ...).
+**terraform-outscale-nets** is a Terraform/OpenTofu module for deploying a vpc and the necessary components (subnets, internet gateway, ...).
 
 Key features:
 - public/private/storage subnets
@@ -37,8 +37,8 @@ Key features:
 ## 🚀 Usage
 
 ```hlc
-module "terraform-osc-vpc" {
-  source = "git@github.com:outscale/terraform-osc-vpc.git" // you can use a specific version
+module "terraform-outscale-nets" {
+  source = "git@github.com:outscale/terraform-outscale-nets.git" // you can use a specific version
 
   --- vars ---
 }
@@ -54,13 +54,13 @@ You need to specify the Access Key Id and Secret Key Id in the variables or use 
 
 ## 💡 Examples
 
-See [example folder](https://github.com/outscale/terraform-osc-vpc)
+See [example folder](https://github.com/outscale/terraform-outscale-nets)
 
 ---
 
 ## 📜 License
 
-**terraform-osc-vpc** is released under the < License Name > license.
+**terraform-outscale-nets** is released under the < License Name > license.
 © 2025 Outscale SAS
 See [LICENSE](./LICENSE) for full details.
 

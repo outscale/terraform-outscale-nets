@@ -1,5 +1,5 @@
-module "terraform_outscale_vpc" {
-  source = "git@github.com:outscale/terraform-osc-vpc.git"
+module "terraform_outscale_nets" {
+  source = "git@github.com:outscale/terraform-outscale-nets.git"
 
   # Required variables
   osc_region     = var.osc_region
