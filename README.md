@@ -144,7 +144,7 @@ No modules.
 | <a name="input_storage_nat_gateway_tags"></a> [storage\_nat\_gateway\_tags](#input\_storage\_nat\_gateway\_tags) | A map of tags to assign to the storage NAT gateways. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_storage_route_table_tags"></a> [storage\_route\_table\_tags](#input\_storage\_route\_table\_tags) | A map of tags to assign to the storage route tables. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_storage_subnet_tags"></a> [storage\_subnet\_tags](#input\_storage\_subnet\_tags) | A map of tags to assign to the storage subnets. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
-| <a name="input_storage_subnets"></a> [storage\_subnets](#input\_storage\_subnets) | A list of storage subnet CIDR blocks. | <pre>list(object({<br/>    cidr = string<br/>    az   = string<br/>  }))</pre> | <pre>[<br/>  {<br/>    "az": "a",<br/>    "cidr": "10.0.200.0/24"<br/>  },<br/>  {<br/>    "az": "b",<br/>    "cidr": "10.0.201.0/24"<br/>  },<br/>  {<br/>    "az": "c",<br/>    "cidr": "10.0.202.0/24"<br/>  }<br/>]</pre> | no |
+| <a name="input_storage_subnets"></a> [storage\_subnets](#input\_storage\_subnets) | A list of storage subnet CIDR blocks. | <pre>list(object({<br/>    cidr = string<br/>    az   = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to the net and its resources. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_tenancy"></a> [tenancy](#input\_tenancy) | The tenancy of the net. Can be 'default' or 'dedicated'. | `string` | `"default"` | no |
 
@@ -158,5 +158,5 @@ No modules.
 | <a name="output_public_ip_for_private_nat_serivce"></a> [public\_ip\_for\_private\_nat\_serivce](#output\_public\_ip\_for\_private\_nat\_serivce) | List of public IPs for NAT service in private subnets. |
 | <a name="output_public_ip_for_storage_nat_service"></a> [public\_ip\_for\_storage\_nat\_service](#output\_public\_ip\_for\_storage\_nat\_service) | List of public IPs for NAT service in storage subnets. |
 | <a name="output_public_subnets"></a> [public\_subnets](#output\_public\_subnets) | List of public subnet IDs. |
-| <a name="output_storage_subnet_ids"></a> [storage\_subnet\_ids](#output\_storage\_subnet\_ids) | List of storage subnet IDs. |
+| <a name="output_storage_subnets"></a> [storage\_subnets](#output\_storage\_subnets) | List of storage subnet IDs. |
 <!-- END_TF_DOCS -->
