@@ -23,9 +23,9 @@ output "public_ip_for_private_nat_serivce" {
   value       = [for ip in outscale_public_ip.nat_service_private_subnet_public_ip : ip.public_ip]
 }
 
-output "storage_subnet_ids" {
+output "storage_subnets" {
   description = "List of storage subnet IDs."
-  value       = [for subnet in outscale_subnet.storage_subnet : subnet.subnet_id]
+  value       = { for subnet in outscale_subnet.storage_subnet : subnet.subnet_id => { az = subnet.subregion_name, cidr = subnet.ip_range } }
 }
 
 output "public_ip_for_storage_nat_service" {
