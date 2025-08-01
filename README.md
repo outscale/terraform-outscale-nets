@@ -144,7 +144,7 @@ No modules.
 | <a name="input_storage_nat_gateway_tags"></a> [storage\_nat\_gateway\_tags](#input\_storage\_nat\_gateway\_tags) | A map of tags to assign to the storage NAT gateways. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_storage_route_table_tags"></a> [storage\_route\_table\_tags](#input\_storage\_route\_table\_tags) | A map of tags to assign to the storage route tables. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_storage_subnet_tags"></a> [storage\_subnet\_tags](#input\_storage\_subnet\_tags) | A map of tags to assign to the storage subnets. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
-| <a name="input_storage_subnets"></a> [storage\_subnets](#input\_storage\_subnets) | A list of storage subnet CIDR blocks. | <pre>list(object({<br/>    cidr = string<br/>    az   = string<br/>  }))</pre> | <pre>[<br/>  {<br/>    "az": "a",<br/>    "cidr": "10.0.200.0/24"<br/>  },<br/>  {<br/>    "az": "b",<br/>    "cidr": "10.0.201.0/24"<br/>  },<br/>  {<br/>    "az": "c",<br/>    "cidr": "10.0.202.0/24"<br/>  }<br/>]</pre> | no |
+| <a name="input_storage_subnets"></a> [storage\_subnets](#input\_storage\_subnets) | A list of storage subnet CIDR blocks. | <pre>list(object({<br/>    cidr = string<br/>    az   = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to the net and its resources. | <pre>list(object({<br/>    key   = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_tenancy"></a> [tenancy](#input\_tenancy) | The tenancy of the net. Can be 'default' or 'dedicated'. | `string` | `"default"` | no |
 
@@ -154,11 +154,9 @@ No modules.
 |------|-------------|
 | <a name="output_net_cidr_block"></a> [net\_cidr\_block](#output\_net\_cidr\_block) | The CIDR block of the Outscale Net. |
 | <a name="output_net_id"></a> [net\_id](#output\_net\_id) | The ID of the Outscale Net. |
-| <a name="output_private_subnet_ids"></a> [private\_subnet\_ids](#output\_private\_subnet\_ids) | List of private subnet IDs. |
-| <a name="output_private_subnet_ids_with_az"></a> [private\_subnet\_ids\_with\_az](#output\_private\_subnet\_ids\_with\_az) | List of private subnet IDs with their availability zones. |
+| <a name="output_private_subnets"></a> [private\_subnets](#output\_private\_subnets) | List of private subnet IDs. |
 | <a name="output_public_ip_for_private_nat_serivce"></a> [public\_ip\_for\_private\_nat\_serivce](#output\_public\_ip\_for\_private\_nat\_serivce) | List of public IPs for NAT service in private subnets. |
 | <a name="output_public_ip_for_storage_nat_service"></a> [public\_ip\_for\_storage\_nat\_service](#output\_public\_ip\_for\_storage\_nat\_service) | List of public IPs for NAT service in storage subnets. |
-| <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | List of public subnet IDs. |
-| <a name="output_public_subnet_ids_with_az"></a> [public\_subnet\_ids\_with\_az](#output\_public\_subnet\_ids\_with\_az) | List of public subnet IDs with their availability zones. |
-| <a name="output_storage_subnet_ids"></a> [storage\_subnet\_ids](#output\_storage\_subnet\_ids) | List of storage subnet IDs. |
+| <a name="output_public_subnets"></a> [public\_subnets](#output\_public\_subnets) | List of public subnet IDs. |
+| <a name="output_storage_subnets"></a> [storage\_subnets](#output\_storage\_subnets) | List of storage subnet IDs. |
 <!-- END_TF_DOCS -->

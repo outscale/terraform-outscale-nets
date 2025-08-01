@@ -152,7 +152,7 @@ variable "storage_subnets" {
     cidr = string
     az   = string
   }))
-  default = [{ cidr = "10.0.200.0/24", az = "a" }, { cidr = "10.0.201.0/24", az = "b" }, { cidr = "10.0.202.0/24", az = "c" }]
+  default = []
 }
 
 variable "storage_subnet_tags" {
