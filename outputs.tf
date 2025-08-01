@@ -10,12 +10,12 @@ output "net_cidr_block" {
 
 output "public_subnets" {
   description = "List of public subnet IDs."
-  value       = {for subnet in outscale_subnet.public_subnet : subnet.subnet_id => {az = subnet.subregion_name, cidr = subnet.ip_range}}
+  value       = { for subnet in outscale_subnet.public_subnet : subnet.subnet_id => { az = subnet.subregion_name, cidr = subnet.ip_range } }
 }
 
 output "private_subnets" {
   description = "List of private subnet IDs."
-  value       = {for subnet in outscale_subnet.private_subnet : subnet.subnet_id => {az = subnet.subregion_name, cidr = subnet.ip_range}}
+  value       = { for subnet in outscale_subnet.private_subnet : subnet.subnet_id => { az = subnet.subregion_name, cidr = subnet.ip_range } }
 }
 
 output "public_ip_for_private_nat_serivce" {
