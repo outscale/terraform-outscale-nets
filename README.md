@@ -155,7 +155,7 @@ No modules.
 | <a name="output_net_cidr_block"></a> [net\_cidr\_block](#output\_net\_cidr\_block) | The CIDR block of the Outscale Net. |
 | <a name="output_net_id"></a> [net\_id](#output\_net\_id) | The ID of the Outscale Net. |
 | <a name="output_private_subnets"></a> [private\_subnets](#output\_private\_subnets) | List of private subnet IDs. |
-| <a name="output_public_ip_for_private_nat_serivce"></a> [public\_ip\_for\_private\_nat\_serivce](#output\_public\_ip\_for\_private\_nat\_serivce) | List of public IPs for NAT service in private subnets. |
+| <a name="output_public_ip_for_private_nat_service"></a> [public\_ip\_for\_private\_nat\_service](#output\_public\_ip\_for\_private\_nat\_service) | List of public IPs for NAT service in private subnets. |
 | <a name="output_public_ip_for_storage_nat_service"></a> [public\_ip\_for\_storage\_nat\_service](#output\_public\_ip\_for\_storage\_nat\_service) | List of public IPs for NAT service in storage subnets. |
 | <a name="output_public_subnets"></a> [public\_subnets](#output\_public\_subnets) | List of public subnet IDs. |
 | <a name="output_storage_subnets"></a> [storage\_subnets](#output\_storage\_subnets) | List of storage subnet IDs. |
