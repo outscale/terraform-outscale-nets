@@ -18,7 +18,7 @@ output "private_subnets" {
   value       = { for subnet in outscale_subnet.private_subnet : subnet.subnet_id => { az = subnet.subregion_name, cidr = subnet.ip_range } }
 }
 
-output "public_ip_for_private_nat_serivce" {
+output "public_ip_for_private_nat_service" {
   description = "List of public IPs for NAT service in private subnets."
   value       = [for ip in outscale_public_ip.nat_service_private_subnet_public_ip : ip.public_ip]
 }
