@@ -39,7 +39,7 @@ resource "outscale_route_table" "public_route_table" {
   net_id = outscale_net.net.net_id
 
   dynamic "tags" {
-    for_each = concat(var.tags, local.public_route_tables_name[each.key])
+    for_each = concat(var.tags, [{ key = "az", value = each.key }], local.public_route_tables_name[each.key])
     content {
       key   = tags.value.key
       value = tags.value.value
@@ -80,7 +80,7 @@ resource "outscale_route_table" "private_route_table" {
   net_id = outscale_net.net.net_id
 
   dynamic "tags" {
-    for_each = concat(var.tags, local.private_route_tables_name[each.key])
+    for_each = concat(var.tags, [{ key = "az", value = each.key }], local.private_route_tables_name[each.key])
     content {
       key   = tags.value.key
       value = tags.value.value
