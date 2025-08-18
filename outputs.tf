@@ -32,3 +32,13 @@ output "public_ip_for_storage_nat_service" {
   description = "List of public IPs for NAT service in storage subnets."
   value       = [for ip in outscale_public_ip.nat_service_storage_subnet_public_ip : ip.public_ip]
 }
+
+output "private_route_tables" {
+  description = "List of private route table IDs."
+  value       = { for k, v in outscale_route_table.private_route_table : k => { id = v.route_table_id } }
+}
+
+output "public_route_tables" {
+  description = "List of public route table IDs."
+  value       = { for k, v in outscale_route_table.public_route_table : k => { id = v.route_table_id } }
+}
