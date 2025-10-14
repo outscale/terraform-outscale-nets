@@ -132,6 +132,17 @@ locals {
   # Kubernetes Cluster Tags
   ####################################################################################################################
   kubernetes_net_tags    = var.kubernetes_support ? [{ key = format("OscK8sClusterID/%s", var.kubernetes_cluster_name), value = "shared" }] : []
-  kubernetes_subnet_tags = var.kubernetes_support ? [{ key = format("OscK8sClusterID/%s", var.kubernetes_cluster_name), value = "shared" }] : []
+  kubernetes_public_subnet_tags  = var.kubernetes_support ? [
+    { key = format("OscK8sClusterID/%s", var.kubernetes_cluster_name), value = "shared" },
+    { key = "OscK8sRole/service" , value = "true" }
+  ] : []
+  kubernetes_private_subnet_tags = var.kubernetes_support ? [
+    { key = format("OscK8sClusterID/%s", var.kubernetes_cluster_name), value = "shared" },
+    { key = "OscK8sRole/service.internal" , value = "true" }
+  ] : []
+  kubernetes_storage_subnet_tags = var.kubernetes_support ? [
+    { key = format("OscK8sClusterID/%s", var.kubernetes_cluster_name), value = "shared" },
+    { key = "OscK8sRole/service.internal" , value = "true" }
+  ] : []
 }
 
