@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: "Terraform Setup"
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
 
       - name: Setup tflint
-        uses: terraform-linters/setup-tflint@v3
+        uses: terraform-linters/setup-tflint@a5a1af8c6551fb10c53f1cd4ba62359f1973746f # v3
 
       - name: Terraform lint
         id: tflint
@@ -45,7 +45,7 @@ jobs:
 
       - name: Run terraform-docs
         id: docs
-        uses: terraform-docs/gh-actions@v1
+        uses: terraform-docs/gh-actions@6de6da0cefcc6b4b7a5cbea4d79d97060733093c # v1
         with:
           working-dir: .
           output-file: ./README.md
@@ -56,10 +56,10 @@ jobs:
         if: |
           always() &&
           github.event_name == 'pull_request'
-        uses: int128/hide-comment-action@v1
+        uses: int128/hide-comment-action@afc35066cef9f89f60a2022988cadb58445a208e # v1
 
       - name: "Comment PR"
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         if: steps.init.outcome == 'failure' || steps.fmt.outcome == 'failure' || steps.validate.outcome == 'failure' || steps.tflint.outcome == 'failure' || steps.docs.outcome == 'failure'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
